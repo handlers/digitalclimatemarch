@@ -1,3 +1,8 @@
 source 'https://rubygems.org'
 gem 'sinatra'
-
+gem 'redis'
+gem 'byebug'
+gem 'rerun'
+gem 'rabl'
+gem 'oj'
+gem 'builder'

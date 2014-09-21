@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>A simple map</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.0/mapbox.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/maps.js"></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.0/mapbox.css' rel='stylesheet' />
+<link href='css/reset.css' rel="stylesheet">
+<link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.5.0/base-min.css&pure/0.5.0/grids-min.css&pure/0.5.0/forms-min.css">
+<link href='css/styles.css' rel='stylesheet'>
+<script type="text/javascript">
+  <%= "var geojson=#{@markers}" unless @markers.nil? %>
+</script>
+<script type="text/javascript" src="js/interactions.js"></script>
+</head>
+<body>
+<div id='non-map'>
+  <h1>I Support the People's Climate March!</h1>
+  <p>Can't make it to the <a href="http://peoplesclimate.org/march/">People's Climate March</a> but want to show your support? Drop a pin!</p>
+</div>
+<div id="spinner">
+  <div id="spinzone">
+    <img src="images/ajax-loader.gif" width="20px" height="20px">
+  </div>
+</div>
+<div id='map'></div>
+</body>
+</html>
