@@ -95,3 +95,19 @@ input[type=submit] {
 .red {
   color: red;
 }
+@media (max-width: 600px) {
+  h1 {
+    font-size: 14px;
+  }
+  p {
+    font-size: 12px;
+  }
+  #non-map {
+    position: absolute;
+    height:  80px;
+  }
+  #map { 
+    position: absolute; 
+    top: 80px; 
+  }
+}
