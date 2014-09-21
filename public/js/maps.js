@@ -37,7 +37,7 @@ $(document).ready(function() {
     var markup = "<div id='submit'> \
       <form class='pure-form pure-form-stacked'> \
         <label for='name'>Your name (optional)</label>\
-        <input id='name' type='text' placeholder='Or nom de guerre, whatever'>\
+        <input id='name' type='text' placeholder='e.g. David Koch'>\
         <label for='motivation'>Why do you care about climate change? (optional, <span class='length-warning'>140 chars</span>)</label>\
         <textarea id='motivation' rows='4' placeholder='e.g. I want human civilization to continue beyond this century.'></textarea>\
         <input type='hidden' id='lat' value ='" + lat +"'>\
