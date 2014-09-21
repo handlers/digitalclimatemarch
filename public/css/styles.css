@@ -38,14 +38,14 @@ p {
   opacity: 1;
 }
 #share {
-  display: none;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 500;
-  background-color: rgba(0, 0, 0, 0.4);
+  top: 17px;
+  right: 100px;
+}
+@media (max-width: 1117px) {
+  #share {
+    display: none;
+  }
 }
 textarea {
   width: 100%;
