@@ -37,6 +37,15 @@ p {
   margin: 268px auto 0 auto;
   opacity: 1;
 }
+#share {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 500;
+  background-color: rgba(0, 0, 0, 0.4);
+}
 textarea {
   width: 100%;
 }

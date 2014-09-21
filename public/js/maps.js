@@ -1,8 +1,30 @@
-var marker = null; //this needs to defined outside of document.ready. Not proud of this, everyone.
+var marker = null; //not proud of this, but it's necessary for scope
+var browser_coords = null;
+
 $(document).ready(function() {
-  L.mapbox.accessToken = 'pk.eyJ1IjoiaGFuZGxlcnMiLCJhIjoiOVphaWwyVSJ9.MnXan-RqPGPGeAEsMVQwuw';
+  function get_location() {
+    if (Modernizr.geolocation) {
+      navigator.geolocation.getCurrentPosition(set_browser_coords);
+    } else {
+      console.log("Can't geolocate...")
+    }
+  }
+
+  function set_browser_coords(geopos) {
+    browser_coords = geopos.coords;
+    event = $.Event("centerMap");
+    event.lat = geopos.coords.latitude
+    event.lng = geopos.coords.longitude
+    $('body').trigger(event);
+  }
+
+  get_location()
+});
+
+$(document).ready(function() {
+  L.mapbox.accessToken = 'pk.eyJ1IjoiaGFuZGxlcnMiLCJhIjoiOVphaWwyVSJ9.MnXan-RqPGPGeAEsMVQwuw'; 
   var map = L.mapbox.map('map', 'handlers.ji8c6h44')
-      .setView([40, -74.50], 9)
+      .setView([40, -74.50], 4)
   map.on('dblclick', function(e) {
     var lat = e.latlng.lat
     var lng = e.latlng.lng
@@ -40,6 +62,11 @@ $(document).ready(function() {
   });
 
   /* Marker submission */
+  $('body').on('centerMap', function(e) {
+    map.setView([e.lat, e.lng], 15)
+  });
+
+  /* Marker submission */
   $('#map').on('submit', '#submit', function(e) {
     var data = {};
     e.preventDefault();
@@ -66,7 +93,6 @@ $(document).ready(function() {
 
   /* Message length validation */
   $('#map').on('keyup', '#motivation', function(e) {
-    console.log(this);
     if ($(this).val().length > 140) {
       $(this).addClass("red");
       $(".length-warning").addClass("red");
