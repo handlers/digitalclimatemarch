@@ -23,9 +23,10 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   L.mapbox.accessToken = 'pk.eyJ1IjoiaGFuZGxlcnMiLCJhIjoiOVphaWwyVSJ9.MnXan-RqPGPGeAEsMVQwuw'; 
-  var map = L.mapbox.map('map', 'handlers.ji8c6h44')
+  var map = L.mapbox.map('map', 'handlers.ji8c6h44', {doubleClickZoom: false})
       .setView([40, -74.50], 4)
   map.on('dblclick', function(e) {
+    map.setView(e.latlng, map.getZoom());
     var lat = e.latlng.lat
     var lng = e.latlng.lng
     marker = L.marker(new L.LatLng(lat, lng), {
